@@ -1,4 +1,5 @@
 const axios = require('axios');
+require('dotenv').config();
 
 // Coordinates for some key railway stations (You should add more accurate coordinates as needed)
 const stations = {
