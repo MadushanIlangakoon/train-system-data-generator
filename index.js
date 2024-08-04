@@ -145,7 +145,7 @@ const sendTrainData = async (train, currentPosition) => {
   };
   
   try {
-    const response = await axios.post('http://localhost:3001/api/trains', trainData);
+    const response = await axios.post(process.env.API, trainData);
     console.log(`Data sent successfully for ${train.train_name}:`, response.data);
   } catch (error) {
     console.error(`Error sending data for ${train.train_name}:`, error);
