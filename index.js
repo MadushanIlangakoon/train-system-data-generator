@@ -1,7 +1,7 @@
 const axios = require('axios');
 require('dotenv').config();
 
-// Coordinates for some key railway stations (You should add more accurate coordinates as needed)
+// Coordinates for some key railway stations 
 const stations = {
   Maradana: { lat: 6.9271, lng: 79.8612 },
   Mirigama: { lat: 7.2427, lng: 80.1270 },
@@ -143,11 +143,16 @@ const sendTrainData = async (train, currentPosition) => {
     latitude: currentPosition.lat,
     longitude: currentPosition.lng,
     time_stamp: new Date().toISOString()
+
   };
   
   try {
-    const response = await axios.post(process.env.API, trainData);
-    console.log(`Data sent successfully for ${train.train_name}:`, response.data);
+    const response = await axios.post(process.env.API, trainData, {
+      headers: {
+        'Authorization': `${process.env.AUTH_TOKEN}` // Replace with your token
+      }
+    });
+    console.log(`Data sent successfully for ${train.train_name}:`);
   } catch (error) {
     console.error(`Error sending data for ${train.train_name}:`, error);
   }
