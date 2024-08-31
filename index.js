@@ -164,7 +164,7 @@ const simulateTrainTravel = (train) => {
   const end = stations[train.destination];
   let fraction = 0; // Start at the beginning of the journey
   const speed = train.speed; // Train speed in km/h
-  const intervalTime = 1000; // Time interval for updates in milliseconds
+  const intervalTime = 60000; // Time interval for updates in milliseconds
   const totalDistance = 58; // Assume a total distance (replace with actual if known)
   const distancePerInterval = (speed * intervalTime) / 3600000; // Distance covered per interval in km
 
